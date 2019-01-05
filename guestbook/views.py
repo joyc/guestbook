@@ -5,7 +5,7 @@ from guestbook.models import Message
 from guestbook.forms import GuestbookForm
 
 
-@app.route('/', methods=["GET", "POST"])
+@app.route('/', methods=['GET', 'POST'])
 def index():
     # 获取所有记录
     messages = Message.query.order_by(Message.timestamp.desc()).all()

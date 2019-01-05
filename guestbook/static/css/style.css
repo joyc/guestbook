@@ -1,0 +1,15 @@
+body {
+    background-color: rgb(245, 245, 245) !important;
+}
+
+p {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+}
+.container {
+    max-width: 640px !important;
+}
+
+.gbook-form {
+    margin-bottom: 20px;
+}

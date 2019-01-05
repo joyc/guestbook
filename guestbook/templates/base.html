@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>{% block title %}留言本{% endblock %}</title>
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    {{ bootstrap.load_css() }}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
+</head>
+<body>
+<main class="container">
+    <header>
+        <h1 class="text-center display-4">
+            <a href="{{ url_for('index') }}" class="text-success"><strong>留言</strong></a>
+            <small class="text-muted sub-title">本</small>
+        </h1>
+    </header>
+    {% for message in get_flashed_messages() %}
+    <div class="alert alert-info">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        {{ message }}
+    </div>
+    {% endfor %}
+    {% block content %}{% endblock %}
+    <footer class="text-center">
+        {% block footer %}
+        <small> &copy; 2018 <a href="http://hython.com" title="hython">Hython</a> /
+            <a href="https://github.com/joyc" title="Fork me on GitHub">Joyc</a>
+        </small>
+        <p><a id="bottom" href="#" title="Go Top">&uarr;</a></p>
+        {% endblock %}
+    </footer>
+</main>
+
+<!-- Bootstrap core CSS -->
+<!-- 使用插件bootstrap-flask 省去 {% include "_reference.html" %}-->
+{{ bootstrap.load_js() }}
+<!-- customize -->
+<script type="text/javascript" src="{{ url_for('static', filename='js/script.js') }}"></script>
+<!--{{ moment.include_moment(local_js=url_for('static', filename='js/moment-with-locales.min.js')) }}-->
+{{ moment.include_moment() }}
+</body>
+</html>

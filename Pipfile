@@ -13,6 +13,7 @@ python-dotenv = "*"
 flask-wtf = "*"
 bootstrap-flask = "*"
 flask-moment = "*"
+flask-debugtoolbar = "*"
 
 [requires]
 python_version = "3.7"
